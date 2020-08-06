@@ -1,22 +1,33 @@
-##  :notebook_with_decorative_cover: 42 cursus (2020/02/24~)
+## :notebook_with_decorative_cover: ft_server
 
-| Circle | Order | Project                                                      | Language |                          Test tool                           |       Status       |    Score    | Pass date  |  Level   |
-| :----: | :---: | :----------------------------------------------------------- | :------: | :----------------------------------------------------------: | :----------------: | :---------: | :--------: | :------: |
-|   01   |  01   | [**Libft**](https://github.com/jwon42/42cursus/tree/master/01_Libft) |    C     |                                                              | :heavy_check_mark: | **115**/100 | 2020-04-16 |   1.03   |
-|   02   |  02   | [**get_next_line**](https://github.com/jwon42/42cursus/tree/master/02_get_next_line) |    C     | [:link:](https://github.com/jwon42/42cursus/tree/master/02_get_next_line#link-test-tools-links) | :heavy_check_mark: | **115**/100 | 2020-04-17 |   1.48   |
-|        |  03   | [**ft_printf**](https://github.com/jwon42/42cursus/tree/master/03_ft_printf) |    C     | [:link:](https://github.com/jwon42/42cursus/tree/master/03_ft_printf#link-test-tools-links) | :heavy_check_mark: | **100**/100 | 2020-05-04 |   1.88   |
-|        |  04   | **netwhat**                                                  |   n/a    |                                                              | :heavy_check_mark: | **100**/100 | 2020-05-05 |   2.03   |
-|   03   |  05   | [**ft_server**](https://github.com/jwon42/42cursus/tree/master/05_ft_server) |  Docker  |                                                              | :heavy_check_mark: | **100**/100 | 2020-05-07 |   2.30   |
-|        |  06   | [**Exam Rank 02**](https://github.com/jwon42/42cursus/tree/master/06_exam_rank_02) |    C     |                                                              | :heavy_check_mark: | **100**/100 | 2020-06-02 |   2.30   |
-|        |  07   | [**cub3d**](https://github.com/jwon42/42cursus/tree/master/07_cub3d) |    C     |                                                              | :heavy_check_mark: | **113**/100 | 2020-08-05 | **3.16** |
-|        |       | ~~**miniRT**~~                                               |          |                                                              |                    |             |            |          |
-|   04   |       | **ft_services**                                              |          |                                                              |                    |             |            |          |
-|        |       | **libasm**                                                   |          |                                                              |                    |             |            |          |
-|        |       | **minishell**                                                |          |                                                              |                    |             |            |          |
-|        |       | **Exam Rank 03**                                             |          |                                                              |                    |             |            |          |
-|        |       |                                                              |          |                                                              |                    |             |            |          |
+#### :page_facing_up:  Mandatory part
 
-## :camera: Intra Profile
+- You must set up a web server with **Nginx**, in **only one docker container**. The **container OS must be [debian buster](https://github.com/jwon42/42cursus/blob/master/05_ft_server/Dockerfile#L13)**.
 
-https://profile.intra.42.fr/users/jwon
+- Your web server must be able to run several services at the same time. The services will be a **[WordPress](https://github.com/jwon42/42cursus/blob/master/05_ft_server/Dockerfile#L41) website**, **[phpMyAdmin](https://github.com/jwon42/42cursus/blob/master/05_ft_server/Dockerfile#L34)** and **MySQL**. You will need to make sure your SQL database works with the WordPress and phpMyAdmin.
+- Your server **should be able to use the [SSL protocol](https://github.com/jwon42/42cursus/blob/master/05_ft_server/Dockerfile#L28)**.
+- You will have to make sure that, depending on the url, your server redirects to the correct website.
+- You will also need to make sure your **server is running with an autoindex that must be able to be disabled**.
+
+------
+
+#### :page_facing_up:  Commands
+
+- Build image
+
+  ```
+  docker build -t IMAGE_NAME .
+  ```
+
+- Run container
+
+  ```
+  docker run --name CONTAINER_NAME -p 80:80 -p 443:443 -itd IMAGE_NAME
+  ```
+
+- Execute running container
+
+  ```
+  docker exec -it CONTAINER_NAME /bin/bash
+  ```
 
